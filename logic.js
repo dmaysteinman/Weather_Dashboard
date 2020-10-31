@@ -1,6 +1,16 @@
+const APIKey = "d1280a16ef7afab193824f1a5ce5a5cb"
+
+
 $(document).ready(function() {
+
+
+const APIKey = "3590698d0ea6a356f08184a99ef7af1c";
+const searchValue = $("#search-value").val();
+const searchBtn = $("#search-button");
+
+
+  
     $("#search-button").on("click", function() {
-      var searchValue = $("#search-value").val();
   
       // clear input box
       $("#search-value").val("");
@@ -20,7 +30,8 @@ $(document).ready(function() {
     function searchWeather(searchValue) {
       $.ajax({
         type: "GET",
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=7ba67ac190f85fdba2e2dc6b9d32e93c&units=imperial",
+        url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=" + APIKey
+
         dataType: "json",
         success: function(data) {
           // create history link for this search
