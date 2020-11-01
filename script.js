@@ -1,6 +1,6 @@
 const APIKey = "3590698d0ea6a356f08184a99ef7af1c";
 const searchBtn = $("#search-button");
-const searchValue = $("#search-value");
+const searchValue = $("#search");
 const temperatureEL = $("#temp");
 const cityEl = $("#city");
 
@@ -11,15 +11,16 @@ searchBtn.on("click", function (event) {
   let cityName = searchValue.val();
   event.preventDefault();
   console.log("CLICKED");
-  todaysWeather(cityName);
+  console.log(searchValue);
+  console.log(cityName);
+  todaysWeather();
 
 });
 
 // pulls the weather from the API when user types in a city
 function todaysWeather(cityName) {
   const queryURL =
-    "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=" + APIKey;
-
+    "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid="+APIKey;
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -31,7 +32,7 @@ function todaysWeather(cityName) {
 
     temperatureEL.text(temp);
     cityEl.text(city);
-  });
+  });s
 }
 
 // To convert to K to F
