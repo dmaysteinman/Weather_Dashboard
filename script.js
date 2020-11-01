@@ -9,7 +9,6 @@ searchBtn.on("click", function (event) {
   //stops search button from refreshing page (?)
   event.preventDefault();
   console.log("CLICKED");
-
 });
 
 // pulls the weather from the API when user types in a city
@@ -22,15 +21,15 @@ function todaysWeather() {
         method: "GET",
       }).then(function (response) {
         const results = response.data;
-        console.log(response);
+        console.log(results);
     
-        // const city = response.name;
-        // const temp = response.main.temp;
+        const city = response.name;
+        const temp = response.main.temp;
     
-        // temperatureEL.text(temp);
-        // cityEl.text(city);
+        temperatureEL.text(temp);
+        cityEl.text(city);
       });
-    };
+};
 
 // To convert to K to F
 // - 273.15) * 1.80 + 32).toFixed(2);
