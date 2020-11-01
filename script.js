@@ -1,6 +1,6 @@
 const APIKey = "3590698d0ea6a356f08184a99ef7af1c";
 const searchBtn = $("#search-button");
-const searchValue = $("#search-value")
+const searchValue = $("#search-value");
 const temperatureEL = $("#temp");
 const cityEl = $("#city");
 
