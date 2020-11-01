@@ -11,10 +11,7 @@ searchBtn.on("click", function (event) {
   const searchValue = $("#search-value").val();
 
   const queryURL =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    searchValue +
-    "&appid=" +
-    APIKey;
+    "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=" + APIKey;
 
   $.ajax({
     url: queryURL,
