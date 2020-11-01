@@ -1,3 +1,4 @@
+// setting global variables
 const APIKey = "3590698d0ea6a356f08184a99ef7af1c";
 const searchBtn = $("#search-button");
 const searchValue = $("#search");
@@ -7,11 +8,20 @@ searchBtn.on("click", function (event) {
   let cityName = searchValue.val();
   //stops search button from refreshing page (?)
   event.preventDefault();
+  //makes enter key work the same as hitting the search button
+  $(searchValue).keyup(function(event) {
+    if (event.keyCode === 13) {
+        $(searchBtn).click();
+    }
+  });
+  // making sure everything works
   console.log("CLICKED");
   console.log(searchValue);
   console.log(cityName);
+  // calling functions
   todaysWeather(cityName);
 });
+
 
 // pulls the weather info from the API when user types in a city
 function todaysWeather(cityName) {
@@ -50,15 +60,19 @@ function todaysWeather(cityName) {
           // colors the uvIndex
           if (uvIndex <= 3) {
             $("#UVindex").css("background-color", "green");
-          } else if (uvIndex >= 3 && uvIndex <= 5) {
+          } else if (uvIndex > 3 && uvIndex <= 5) {
             $("#UVindex").css("background-color", "yellow");
           } else if (uvIndex > 5 && uvIndex <= 7) {
             $("#UVindex").css("background-color", "orange");
-          } else if (uvIndex > 7) {
+          } else if (uvIndex > 7 && uvIndex <=9) {
             $("#UVindex").css("background-color", "red");
+          } else if (uvIndex > 9) {
+            $("#UVindex").css("background-color", "maroon");
           }
-      });
-    };
+        });
+    };  
+
+    // calls the function
     getUVIndex(lat,lon)
   });
 };
